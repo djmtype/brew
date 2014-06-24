@@ -1,0 +1,35 @@
+$lite: #ffffff;
+$dark: #000000;
+
+$gray: #878787;
+$gray-dark: #333333;
+$gray-lite: #cccccc;
+$gray-xlite: #eeeeee;
+
+$ivory: ivory;
+
+$navy: rgb(32,41,96);
+$blue: rgb(0,178,219);
+$blue-lite: tint($blue, 80%);
+
+$blue-dark: shade($blue, 20%);
+$red: rgb(190,30,45);
+$red-dark: shade($red, 20%);
+$powder: rgb(158,210,234);
+$powder-lite: tint($powder, 80%);
+$orange: rgb(248,148,6);
+
+$color-text: $gray-dark;
+
+$lite-trans-3: transparentize($lite, .3);
+$dark-trans-3: transparentize($dark, .3);
+
+$lite-trans-5: transparentize($lite, .5);
+$dark-trans-5: transparentize($dark, .5);
+
+$lite-trans-7: transparentize($lite, .7);
+$dark-trans-7: transparentize($dark, .7);
+
+$lite-trans-8: transparentize($lite, .8);
+$dark-trans-8: transparentize($dark, .8);
+

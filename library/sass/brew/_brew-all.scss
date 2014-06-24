@@ -1,0 +1,12 @@
+@import "wp-core.scss"; // styles for text formatting, captions, galleries, etc
+@import "global.scss"; // BREW global styles
+@import "comments.scss"; // styles for comments
+@import "tables.scss"; // styles for tables
+@import "form.scss"; // styles for forms
+@import "sidebar.scss"; // styles for sidebars
+@import "footer.scss"; // styles for footer
+@import "content.scss"; // styles for wordpress pages/posts etc
+@import "nav.scss"; // styles for navigation and header
+@import "body.scss"; // target specific body classes
+@import "components.scss"; // components built for BREW such as breadcrumbs, next/previous buttons, etc
+@import "brew.scss"; // this is for the sample BREW site.  Feel free to delete

@@ -1,0 +1,309 @@
+@import "compass";
+
+
+%font-smoothing {
+transform: translate3d(0,0,0);
+-webkit-backface-visibility:hidden;
+-webkit-transform-style: preserve-3d;
+-webkit-transform: translateZ(0);
+}
+
+@mixin fontsize($size:1.4, $line: $size * 1.5){
+font-size: ($size * 10) + px;
+line-height: ($line * 10) + px;
+font-size: $size + rem;
+line-height: $line + rem;
+}
+
+
+
+
+$font-icon: "FontAwesome", sans-serif;
+
+%icon {
+font-family: $font-icon;
+font-weight: normal;
+line-height: 1;
+font-style: normal;
+text-transform: none;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+%grad-lite {
+  background: $powder-lite;
+  background: linear-gradient($lite, $powder-lite);
+}
+
+%text-shadow {
+  text-shadow: 1px 1px 2px $dark-trans-8;
+}
+
+%border-radius {
+border-radius: 4px;
+}
+
+
+%rounded {
+border-radius: 1000px;
+}
+.rounded {
+  @extend %rounded;
+}
+
+%lowercase {
+  text-transform: lowercase;
+}
+
+.lowercase {
+  @extend %lowercase;
+}
+
+%uppercase {
+	text-transform: uppercase;
+}
+
+%text-caps {
+	@extend %uppercase;
+  text-rendering: optimizeLegibility;
+	letter-spacing: .09em;
+	font-weight: bold;
+}
+
+.text-caps {
+	@extend %text-caps;
+
+}
+
+%text-stress {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.text-stress {
+  @extend %text-stress;
+}
+
+%stripe-lite {
+  background: image-url("stripe-lite.svg") repeat 0 50% $blue-lite; 
+background-size: 300px auto;
+}
+
+$font-sans: "Lato", Arial, Helvetica, sans-serif;
+$font-serif: "Times New Roman", Times, "PT Serif", serif;
+$font-head: "Lato", Arial, Helvetica, sans-serif;
+
+[class*="icon-"] {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+
+.btn-2x {
+  @extend %text-caps;
+  text-align: left;
+  //padding-right: 3em;
+  em {
+    text-transform: none;
+    letter-spacing: normal;
+  }
+  .fa-2x {
+  font-size: 2.5em;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+     @content;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+     @content;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+     @content;
+  }
+
+  &:-ms-input-placeholder {  
+     @content;
+  }
+
+
+}
+
+%vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.vertical-align {
+  @extend %vertical-align;
+}
+
+@mixin btn-theme($btn-color) {
+border: 1px solid shade($btn-color, 20%);
+background: $btn-color;
+@include background(linear-gradient(lighten($btn-color, 10%), darken($btn-color, 10%)));
+background-size: auto 200%;
+background-position: 0 100%;
+box-shadow: 0 2px 2px 0 $dark-trans-8, inset 0 -1px 1px 1px $lite-trans-7;
+  &:hover {
+  	background-position: 0 0;
+   
+  }
+  &:active {
+    box-shadow: 0 0 2px 0 $dark-trans-8, inset 0 1px 1px 1px $lite-trans-7;
+    @include background(linear-gradient(lighten($btn-color, 10%), darken($btn-color, 10%)));
+    background-position: 0 0;
+  }
+}
+
+
+/* Button Global */
+
+.btn {
+  display: inline-block;
+  @extend %text-caps;
+  padding: 10px 15px;
+
+  @extend %border-radius;
+  //box-shadow: inset 0 .063em $lite-trans-5, inset 0 -.188em rgba(black,.15);
+ @include link-colors($lite, $lite, $lite, $lite, $lite);
+  text-decoration: none;
+  cursor:pointer;
+}
+
+li.btn a {
+  color: $lite;
+}
+
+
+/* Themes */
+
+
+.btn-blue {
+  @include btn-theme($blue);
+  &:hover {
+  	color: $lite;
+  }
+}
+
+.btn-red {
+  @include btn-theme($red);
+	
+}
+
+.btn-navy {
+  @include btn-theme($navy);
+  
+}
+
+.btn-orange {
+  @include btn-theme($orange);
+  
+}
+
+
+.btn-group-large {
+
+
+  .btn {
+    padding: 15px 5px;
+  border-radius: 0;
+  @extend %uppercase;
+  }
+
+
+}
+
+  .btn-group-large [class*="btn-"] {
+    box-shadow: none;
+    
+      &:active {
+        box-shadow: none;
+      }
+  }
+
+
+@mixin orb-theme($orb-color) { 
+   @extend %rounded;
+   height: 40px;
+   width: 40px;
+   background: image-url("orb.svg") 50% 0 $orb-color no-repeat;
+   background-size: contain;
+   box-shadow: inset 0 0 1em 0 $dark-trans-8, 0 0 0 5px $lite;
+   border: 2px solid $orb-color;
+   display: inline-block;
+
+}
+
+
+.no-cssgradients {
+
+  .orb-blue:before, .orb-navy:before, .orb-red:before {
+    background-image: image-url("orb.png");
+  }
+
+}
+
+
+.orb-blue:before {
+  @include orb-theme($blue);
+
+}
+
+.orb-navy:before {
+  @include orb-theme($navy);
+}
+
+.orb-red:before {
+  @include orb-theme($red);
+}
+
+.orb:before {
+  @extend %icon;
+     position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    content: "";
+    top: -20px; 
+    text-align: center;
+    color: $lite;
+    line-height: 35px;
+    font-size: 1.8em;
+} 
+
+.no-cssgradients {
+  .orb:before {
+    @extend %icon;
+       position: absolute;
+      left: 50%;
+      margin-left: -20px;
+      content: "";
+      top: -20px; 
+      text-align: center;
+      color: $lite;
+      line-height: 35px;
+      font-size: 24px;
+  } 
+  }
+
+/* .orb {
+
+text-align: center;
+position: absolute;
+left: 50%;
+margin-right: -25px;
+top: -25px; 
+color: $lite;
+  .fa {
+    line-height: 50px;
+    display: block; 
+
+  }
+      .fa-3x {
+      font-size: 3.5em;
+    }
+} */
